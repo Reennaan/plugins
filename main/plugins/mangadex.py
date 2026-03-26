@@ -15,7 +15,7 @@ class MangaDex(BaseProvider):
         self.request_timeout = 15
         self.access_token = ""
         self.refresh_token = ""
-        load_dotenv()
+        
         self.params = {
             'grant_type':'password',
             'username': os.getenv('MANGADEX_USER'),

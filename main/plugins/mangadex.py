@@ -1,10 +1,7 @@
 from plugins.base import BaseProvider
 import os
 import cloudscraper
-from bs4 import BeautifulSoup
-from fake_useragent import UserAgent
 import requests
-from dotenv import load_dotenv
 from pprint import pprint
 
 class MangaDex(BaseProvider):

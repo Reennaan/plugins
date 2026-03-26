@@ -145,7 +145,11 @@ class MangaDex(BaseProvider):
         result = []
         for item in chapters:
             chapterid = item["id"]
-            chapter.append(f"Chapter {item['attributes'].get('chapter')}")
+            chapters = sorted(
+                chapters,
+                key=lambda x: float(x["attributes"].get("chapter") or 0),
+                reverse=True
+            )
             chaptersLinks.append(f"https://api.mangadex.org/at-home/server/{chapterid}")
 
             '''

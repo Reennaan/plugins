@@ -99,12 +99,12 @@ class SilentQuill(BaseProvider):
 
     
         
-        results.append({
-            "title": title,
-            "cover": cover,
-            "link": link
-
-        })
+        for index, t in enumerate(title):
+            results.append({
+                "title": t,
+                "cover": cover[index],
+                "link": link[index]
+            })
 
 
 

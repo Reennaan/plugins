@@ -36,7 +36,7 @@
     "version": "1.0.0",
     "description": "Read manga online for free on KDT SCANS. No ads, no interruptions — thousands of titles updated daily across all genres..",
     "language": "en",
-    "nsfw": false,
+    "nsfw": true,
     "icon": "http://www.silentquill.net/wp-content/uploads/2025/06/Logo2.webp",
     "file_url": "https://raw.githubusercontent.com/Reennaan/plugins/refs/heads/master/main/plugins/silentquill.py"
 

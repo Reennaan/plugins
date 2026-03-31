@@ -1,7 +1,7 @@
 from plugins.base import BaseProvider
 import cloudscraper
 from bs4 import BeautifulSoup
-from pprint import pprint
+
 
 
 
@@ -27,7 +27,7 @@ class SilentQuill(BaseProvider):
 
         results = []
 
-        for i in range(0,19):
+        for i in range(0,10):
             title = seldata[i]["title"]
             cover = seldata[i]["data-src"].lstrip('/')
             link  = selLink[i]["href"].lstrip('/')
@@ -116,5 +116,16 @@ class SilentQuill(BaseProvider):
         #chapter
         #name
 
+    
+        r = self.scraper.get(chapter_url)
+        soup  = BeautifulSoup(r.text, "html.parser")
+        mList = soup.select("#readerarea img")
+        
 
-        raise NotImplementedError
+        pageList = [item["data-src"].lstrip('/') for item in mList]
+
+
+        
+
+
+        return pageList

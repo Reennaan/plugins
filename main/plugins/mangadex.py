@@ -53,15 +53,17 @@ class MangaDex(BaseProvider):
         headers = {'Authorization': f'Bearer {self.access_token}'}
         params = {
             'limit': 10,
-            'includes[]': ['author', 'artist', 'cover_art'] 
+            'includes[]': ['author', 'artist', 'cover_art'],
+            'translatedLanguage[]': self.language,
         }
         
 
         if name:
             params = {
+                'translatedLanguage[]': self.language,
                 'title': name,
                 'limit': 10,
-                'includes[]': ['author', 'artist', 'cover_art',f'{self.language}'],
+                'includes[]': ['author', 'artist', 'cover_art'],
                 #"translatedLanguage[]": ["en"] 
             }
         

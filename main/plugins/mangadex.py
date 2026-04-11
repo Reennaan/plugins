@@ -191,7 +191,7 @@ class MangaDex(BaseProvider):
         #pageList
         #chapter
         #name
-        #pprint(chapter_url)
+        pprint(chapter_url)
 
 
         r =  requests.get(chapter_url).json()

@@ -14,7 +14,7 @@
     "name": "MangaDex",
     "version": "1.0.0",
     "description": "Read comics and manga online at MangaDex, with high quality images and support creators and translators!",
-    "language": "mult",
+    "language": "multi",
     "nsfw": true,
     "icon": "https://mangadex.org/favicon.ico",
     "file_url": "https://raw.githubusercontent.com/Reennaan/plugins/refs/heads/master/main/plugins/mangadex.py"

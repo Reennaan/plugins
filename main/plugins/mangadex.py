@@ -61,12 +61,12 @@ class MangaDex(BaseProvider):
             params = {
                 'title': name,
                 'limit': 10,
-                'includes[]': ['author', 'artist', 'cover_art'],
+                'includes[]': ['author', 'artist', 'cover_art',f'{self.language}'],
                 #"translatedLanguage[]": ["en"] 
             }
         
 
-        r = requests.get(f"{self.baseUrl}/manga&translatedLanguage[]={self.language}",headers=headers, timeout=15 , params=params)
+        r = requests.get(f"{self.baseUrl}/manga",headers=headers, timeout=15 , params=params)
         print(f"url: {r.request.url}")
         #print(f"params: {r.request.params}")
         data = r.json()

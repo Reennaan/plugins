@@ -147,7 +147,7 @@ class MangaDex(BaseProvider):
         for item in chapters:
             chapterid = item["id"]
             chapter.append(f"Chapter {item['attributes'].get('chapter')}")
-            chaptersLinks.append(f"https://api.mangadex.org/at-home/server/{chapterid}&translatedLanguage[]={self.language}")
+            chaptersLinks.append(f"https://api.mangadex.org/at-home/server/{chapterid}")
 
             '''
             chapters_data = [

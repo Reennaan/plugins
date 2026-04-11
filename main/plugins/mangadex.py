@@ -191,7 +191,7 @@ class MangaDex(BaseProvider):
         #pageList
         #chapter
         #name
-        pprint(chapter_url)
+        pprint(f'[MANGADEX] {chapter_url}')
 
 
         r =  requests.get(chapter_url).json()
@@ -201,7 +201,7 @@ class MangaDex(BaseProvider):
         pages = []
         for item in chapterData:
             pages.append(f"{dataUrl}/data/{chapterHash}/{item}")
-            print(pages)
+            print(f"[MANGADEX] {pages}")
 
         #pprint(pages)
 

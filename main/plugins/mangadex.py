@@ -188,22 +188,22 @@ class MangaDex(BaseProvider):
         return self.fetch_home(name)
 
     def get_pages(self, chapter_url):
-        #pageList
-        #chapter
-        #name
         pprint(f'[MANGADEX] {chapter_url}')
+        r = requests.get(chapter_url).json()
 
+        chapter = r.get("chapter", {}) or {}
+        base_url = r.get("baseUrl")
+        chapter_hash = chapter.get("hash")
 
-        r =  requests.get(chapter_url).json()
-        chapterHash = r["chapter"].get("hash")
-        chapterData = r["chapter"].get("data")
-        dataUrl = r["baseUrl"]
-        pages = []
-        for item in chapterData:
-            pages.append(f"{dataUrl}/data/{chapterHash}/{item}")
-            print(f"[MANGADEX] {pages}")
+        chapter_data = chapter.get("data") or chapter.get("dataSaver") or []
+        if not base_url or not chapter_hash or not chapter_data:
+            pprint(f"[MANGADEX] resposta inválida ou vazia: {r}")
+            return []
 
-        #pprint(pages)
+        pages = [
+            f"{base_url}/data/{chapter_hash}/{item}"
+            for item in chapter_data
+        ]
 
-        #    https://cmdxd98sb0x3yprd.mangadex.network/data/25f8494c4b02ee11f919140f19b63e46/1-fa9ad56d985723c112e70363b5b02f7a93ba880b573a440eee59388dd791bdf3.png
+        pprint(f"[MANGADEX] pages count: {len(pages)}")
         return pages

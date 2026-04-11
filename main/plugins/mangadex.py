@@ -15,6 +15,7 @@ class MangaDex(BaseProvider):
         self.request_timeout = 15
         self.access_token = ""
         self.refresh_token = ""
+        self.language = "en"
         
         self.params = {
             'grant_type':'password',
@@ -65,7 +66,7 @@ class MangaDex(BaseProvider):
             }
         
 
-        r = requests.get(f"{self.baseUrl}/manga",headers=headers, timeout=15 , params=params)
+        r = requests.get(f"{self.baseUrl}/manga&translatedLanguage[]={self.language}",headers=headers, timeout=15 , params=params)
         print(f"url: {r.request.url}")
         #print(f"params: {r.request.params}")
         data = r.json()
@@ -146,7 +147,7 @@ class MangaDex(BaseProvider):
         for item in chapters:
             chapterid = item["id"]
             chapter.append(f"Chapter {item['attributes'].get('chapter')}")
-            chaptersLinks.append(f"https://api.mangadex.org/at-home/server/{chapterid}")
+            chaptersLinks.append(f"https://api.mangadex.org/at-home/server/{chapterid}&translatedLanguage[]={self.language}")
 
             '''
             chapters_data = [

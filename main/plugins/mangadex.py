@@ -54,13 +54,13 @@ class MangaDex(BaseProvider):
         params = {
             'limit': 10,
             'includes[]': ['author', 'artist', 'cover_art'],
-            'translatedLanguage[]': self.language,
+            'availableTranslatedLanguage[]': self.language,
         }
         
 
         if name:
             params = {
-                'translatedLanguage[]': self.language,
+                'availableTranslatedLanguage[]': self.language,
                 'title': name,
                 'limit': 10,
                 'includes[]': ['author', 'artist', 'cover_art'],

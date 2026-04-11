@@ -201,8 +201,9 @@ class MangaDex(BaseProvider):
         pages = []
         for item in chapterData:
             pages.append(f"{dataUrl}/data/{chapterHash}/{item}")
+            print(pages)
 
-        pprint(pages)
+        #pprint(pages)
 
         #    https://cmdxd98sb0x3yprd.mangadex.network/data/25f8494c4b02ee11f919140f19b63e46/1-fa9ad56d985723c112e70363b5b02f7a93ba880b573a440eee59388dd791bdf3.png
         return pages
